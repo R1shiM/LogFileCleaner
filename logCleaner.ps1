@@ -1,11 +1,11 @@
 # Logging all files we removed
-$logFolder = "C:\Users\RishiMukherjee\Documents\logs"
+$logFolder = "C:\Users\RishiMukherjee\Documents\logs" #replace with your own directories
 New-Item -ItemType Directory $logFolder -Force
 $timeStamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $transcriptPath = Join-Path -Path $logFolder -ChildPath "LogCleaner-$timeStamp.txt"
 Start-Transcript -Path $transcriptPath
 
-$DirectoryListFilePath='C:\Users\RishiMukherjee\Documents\logCleaner\LogDirectories.csv'
+$DirectoryListFilePath='C:\Users\RishiMukherjee\Documents\logCleaner\LogDirectories.csv' #replace with your own directories
 $Directories=Import-Csv -Path $DirectoryListFilePath
 
 foreach($Directory in $Directories) {
