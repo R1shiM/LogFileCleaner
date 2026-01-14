@@ -16,7 +16,6 @@ foreach($Directory in $Directories) {
 
     # Check for each file if its was last written time was before its max keep for days, and delete if so
     foreach($file in $files) {
-        $d = [datetime]$file.LastWriteTime
         if ($file.LastWriteTime -lt (Get-Date).AddDays(-$KeepDays)) {
             Remove-Item -Path $file -Confirm:$false -Force
             Write-Output "Removed: $file"
